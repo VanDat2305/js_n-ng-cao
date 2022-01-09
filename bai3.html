@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 3</title>
+    <style>
+        .li_user {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="target"></ul>
+    <script>
+        var users = [{
+            id: 1,
+            name: "Dat",
+            gender: 1,
+        }, {
+            id: 2,
+            name: "Hieu",
+            gender: 1,
+        }, {
+            id: 3,
+            name: "Hiep",
+            gender: 1,
+        }, {
+            id: 4,
+            name: "Oanh",
+            gender: 2,
+        }, {
+            id: 5,
+            name: "Lan",
+            gender: 2,
+        }, ];
+        var target = document.querySelector("#target");
+
+        var el_li = users.map(function(user) {
+            var cre_li = document.createElement("li");
+            cre_li.setAttribute("class", "li_user");
+            cre_li.innerText = `${user.id} - ${user.name} - ${user.gender == 1 ? 'male' : 'female'} `;
+            target.appendChild(cre_li);
+
+        });
+    </script>
+</body>
+
+</html>

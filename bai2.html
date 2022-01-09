@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+    <style>
+        .title {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- bai3 -->
+    <input type="text" id="input_text">
+    <h3 id="out_text">Out Text</h3>
+    <div id="target">
+
+    </div>
+    <script>
+        var target = document.querySelector("#target");
+        var cre_h1 = document.createElement("h1");
+        // bai 3
+        var input_text = document.querySelector("#input_text");
+        var out_text = document.querySelector("#out_text");
+
+        input_text.onkeyup = function() {
+            //bai4
+            cre_h1.innerText = out_text.innerText;
+            target.appendChild(cre_h1);
+            cre_h1.setAttribute("class", "title")
+                //bai3
+            out_text.innerText = input_text.value;
+        }
+    </script>
+</body>
+
+</html>

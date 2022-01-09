@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+    <style>
+        .form {
+            width: 300px;
+        }
+        
+        .form div {
+            display: flex;
+            align-content: stretch;
+            flex-wrap: wrap;
+        }
+        
+        .form div label {
+            width: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form">
+        <div>
+            <label for="">Date</label>
+            <input type="number" id="date">
+        </div>
+        <div>
+            <label for="">Month</label>
+            <input type="number" id="month">
+        </div>
+        <div>
+            <label for="">Year</label>
+            <input type="number" id="year">
+        </div>
+        <div>
+            <button type="button" id="submit">Convert</button>
+        </div>
+    </form>
+    <div id="showConvert">
+
+    </div>
+
+    <script src="./moment.min.js"></script>
+    <script>
+        var date = document.querySelector("#date");
+        var month = document.querySelector("#month");
+        var year = document.querySelector("#year");
+        var submit = document.querySelector("#submit");
+        var showConvert = document.querySelector("#showConvert")
+
+
+        submit.onclick = function() {
+            if (date.value !== "" && month.value !== "" && year.value !== "") {
+
+                var datetimeInput = new Date(year.value + "-" + month.value + "-" + date.value);
+
+                function export_h3($format) {
+
+                    var cre_h3 = document.createElement("h3");
+                    var show_day = moment(datetimeInput, "YYYY-MM-DD").format($format);
+                    cre_h3.innerText = show_day;
+                    showConvert.appendChild(cre_h3);
+                }
+                export_h3("YYYY-MM-DD");
+                export_h3("DD/MM/YYYY");
+                export_h3("DD.MM.YYYY");
+                export_h3("DD, MMM YYYY");
+                export_h3("DD, MMMM YYYY");
+
+            };
+
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 4</title>
+    <style>
+        .li_user {
+            color: rgb(0, 192, 182);
+            text-decoration: underline;
+        }
+        
+        .error {
+            color: red;
+            text-transform: initial;
+        }
+        
+        .form {
+            width: 300px;
+        }
+        
+        .form div {
+            display: flex;
+            align-content: stretch;
+            flex-wrap: wrap;
+        }
+        
+        .form div label {
+            width: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form">
+        <div>
+            <label for="">ID</label>
+            <input type="number" id="userId">
+        </div>
+        <div>
+            <label for="">Name</label>
+            <input type="text" id="userName">
+        </div>
+        <div>
+            <label for="">Gender</label>
+            <select id="userGender">
+                <option value="1">Male</option>
+                <option value="1">Female</option>
+            </select>
+        </div>
+        <div>
+            <button type="button" id="btnSubmit">Add</button>
+        </div>
+    </form>
+    <ul id="target"></ul>
+    <script>
+        var users = [{
+            id: 1,
+            name: "Dat",
+            gender: 1,
+        }, {
+            id: 2,
+            name: "Hieu",
+            gender: 1,
+        }, {
+            id: 3,
+            name: "Hiep",
+            gender: 1,
+        }, {
+            id: 4,
+            name: "Oanh",
+            gender: 2,
+        }, {
+            id: 5,
+            name: "Lan",
+            gender: 2,
+        }, ];
+        var target = document.querySelector("#target");
+
+        var el_li = users.map(function(user) {
+            var cre_li = document.createElement("li");
+            cre_li.setAttribute("class", "li_user");
+            cre_li.innerText = `${user.id} - ${user.name} - ${user.gender == 1 ? 'male' : 'female'} `;
+            target.appendChild(cre_li);
+
+        });
+
+        var userId = document.querySelector("#userId");
+        var userName = document.querySelector("#userName");
+        var userGender = document.querySelector("#userGender");
+        var btnSubmit = document.querySelector("#btnSubmit");
+
+        btnSubmit.onclick = function() {
+            if (userId.value !== "" && userName.value !== "") {
+                var cre_li_2 = document.createElement("li");
+                cre_li_2.setAttribute("class", "li_user");
+                cre_li_2.innerText = `${userId.value} - ${userName.value} - ${userGender.value == 1 ? 'male' : 'female'} `;
+                target.appendChild(cre_li_2);
+                userId.value = "";
+                userName.value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
